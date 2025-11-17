@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Oils of BaNTU</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><img src="assets/images/logo.png" class="logo" alt="logo"></a>
+      <div class="header-actions"><a class="btn" href="#">Log out</a></div>
+    </div>
+  </header>
+
+  <main class="container admin-container">
+    <h1>Admin Dashboard</h1>
+    <section class="admin-panels">
+      <div class="card">
+        <h2>Create Post / Product</h2>
+        <form id="newPost" onsubmit="event.preventDefault(); alert('Publish placeholder')">
+          <label>Title<input type="text" name="title" required></label>
+          <label>Category<input type="text" name="category"></label>
+          <label>Price<input type="text" name="price"></label>
+          <label>Content<textarea name="content" rows="6"></textarea></label>
+          <label>Image<input type="file" name="image"></label>
+          <button class="btn" type="submit">Publish</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>All Posts</h2>
+        <table class="posts-table">
+          <thead><tr><th>Title</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody>
+            <tr><td>Neroli blend</td><td>2025-11-01</td><td><button class="btn small">Edit</button> <button class="btn small">Delete</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
