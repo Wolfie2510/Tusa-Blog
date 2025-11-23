@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — Oils of Bantu</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header">
+<div class="container header-inner">
+<a class="brand" href="index.html"><img src="/image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" class="logo" alt="logo"></a>
+</div>
+</header>
+
+
+<main class="container section">
+<h1>Contact</h1>
+<p>For wholesale, events or general enquiries, email <a href="mailto:hello@oilsofbantu.example">hello@oilsofbantu.example</a> or use the form below.</p>
+
+
+<form onsubmit="event.preventDefault(); alert('Message sent — placeholder')">
+<label>Name<input required></label>
+<label>Email<input type="email" required></label>
+<label>Message<textarea rows="5" required></textarea></label>
+<button class="btn" type="submit">Send</button>
+</form>
+</main>
+
+
+<footer class="site-footer"><div class="container footer-inner"><p>&copy; <span id="year2"></span> Oils of Bantu</p></div></footer>
+<script>document.getElementById('year2')?.textContent = new Date().getFullYear()</script>
+</body>
+</html>
