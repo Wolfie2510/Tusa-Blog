@@ -3,58 +3,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Oils of BaNTU — New Products & Blog</title>
+  <title>Oils of Bantu — New Products & Journal</title>
 
-  <!-- Google fonts used: Playfair Display (serif) + Inter (sans) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header with logo and nav -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
-        <img src="/Image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" alt="Oils of BaNTU logo" class="logo">
+        <img src="/image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" alt="Oils of Bantu logo" class="logo">
       </a>
 
       <nav class="nav" id="mainNav" aria-label="Main navigation">
-        <ul class="nav-list">
+        <ul class="nav-list" id="navList">
           <li><a href="index.html">Home</a></li>
-          <li class="has-dropdown">
-            <a href="#">Collections ▾</a>
-            <ul class="dropdown">
-              <li><a href="topic-design.html">Aromatherapy</a></li>
-              <li><a href="topic-html-css.html">Tea Blends</a></li>
-              <li><a href="topic-js.html">Gift Sets</a></li>
-            </ul>
+
+          <li class="has-dropdown" id="collectionsWrap">
+            <button id="collectionsToggle" class="collections-toggle" aria-expanded="false" aria-controls="collectionsList">Collections ▾</button>
+            <ul class="dropdown" id="collectionsList" role="menu" aria-hidden="true"></ul>
           </li>
+
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
+        <button id="themeToggle" class="btn ghost" title="Toggle dark mode">🌗</button>
         <a class="btn ghost" href="admin.html">Admin</a>
-        <button id="navToggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+        <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navList" aria-label="Toggle navigation">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- Hero with big brand / tagline -->
+  <!-- Main content -->
   <main>
-    <section class="hero">
+    <section class="hero hero-brand">
       <div class="container hero-inner">
         <div class="hero-left">
-          <h1 class="hero-title">Oils of BaNTU</h1>
-          <p class="hero-sub">Aromatherapy. Perfumery. Tea blends. Discover our newest seasonal infusions and ritual teas.</p>
+          <h1 class="hero-title">Oils of Bantu</h1>
+          <p class="hero-sub">Aromatherapy. Perfumery. Tea blends. Seasonal drops inspired by kwaNTU.</p>
           <div class="hero-ctas">
             <a class="btn" href="#products">Shop New</a>
-            <a class="link" href="#posts">Read the Blog</a>
+            <a class="link" href="#posts">Read the Journal</a>
           </div>
         </div>
         <div class="hero-right">
-          <img src="assets/images/hero-tea.jpg" alt="Tea & oils" class="hero-image">
+          <img src="/image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" alt="Tea & oils" class="hero-image" loading="lazy">
         </div>
       </div>
     </section>
@@ -62,101 +59,83 @@
     <!-- Featured Products -->
     <section id="products" class="container section">
       <h2 class="section-title">New Arrivals</h2>
-      <div class="cards-grid">
-        <article class="card">
-          <img src="assets/images/product1.jpg" alt="Product 1">
-          <div class="card-body">
-            <span class="tag">Tea Blend</span>
-            <h3 class="card-title">Sunrise Rooibos + Neroli</h3>
-            <p class="card-excerpt">A soft citrus rooibos blend with subtle floral notes — perfect for morning rituals.</p>
-            <div class="card-meta">
-              <span class="price">R120</span>
-              <a class="btn small" href="post.html">Learn</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card"> <!-- duplicate sample -->
-          <img src="assets/images/product1.jpg" alt="Product 2">
-          <div class="card-body">
-            <span class="tag">Aromatherapy</span>
-            <h3 class="card-title">Calm Ritual Oil</h3>
-            <p class="card-excerpt">Hand-blended oils for evening relaxation — great with a diffuser.</p>
-            <div class="card-meta">
-              <span class="price">R180</span>
-              <a class="btn small" href="post.html">Learn</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <img src="assets/images/product1.jpg" alt="Product 3">
-          <div class="card-body">
-            <span class="tag">Gift</span>
-            <h3 class="card-title">Ritual Gift Set</h3>
-            <p class="card-excerpt">A curated set of sample blends and a handcrafted muslin sachet.</p>
-            <div class="card-meta">
-              <span class="price">R350</span>
-              <a class="btn small" href="post.html">Learn</a>
-            </div>
-          </div>
-        </article>
-      </div>
+      <div id="featuredProducts" class="cards-grid" aria-live="polite"></div>
     </section>
 
-    <!-- Latest blog posts -->
+    <!-- Blog controls + list -->
     <section id="posts" class="container section">
-      <h2 class="section-title">Latest from the Journal</h2>
-      <div class="posts-grid">
-        <article class="post-card">
-          <a class="post-thumb" href="post.html"><img src="assets/images/product1.jpg" alt=""></a>
-          <div class="post-body">
-            <a class="post-category" href="#">Tea</a>
-            <h3 class="post-title"><a href="post.html">How we crafted our new Neroli blend</a></h3>
-            <p class="post-excerpt">A short peek into sourcing, tasting and pairing for the perfect morning cup.</p>
-            <div class="post-meta">
-              <time datetime="2025-11-01">Nov 1, 2025</time>
-              <a class="read-more" href="post.html">Read →</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- duplicate examples -->
-        <article class="post-card"> ... </article>
-        <article class="post-card"> ... </article>
+      <div class="posts-header">
+        <h2 class="section-title">Latest from the Journal</h2>
+        <div class="controls">
+          <input id="searchInput" type="search" placeholder="Search posts..." aria-label="Search posts">
+          <select id="sortSelect" title="Sort posts">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="title">Title (A→Z)</option>
+          </select>
+        </div>
       </div>
+
+      <div id="categoriesBar" class="categories-bar" aria-hidden="false"></div>
+
+      <div id="postsGrid" class="posts-grid" aria-live="polite"></div>
+
+      <div id="pagination" class="pagination" role="navigation" aria-label="Pagination"></div>
     </section>
 
     <!-- Newsletter CTA -->
     <section class="newsletter">
       <div class="container newsletter-inner">
         <div>
-          <h3>Get new product drops & recipes</h3>
-          <p>Join our small mailing list for first access to seasonal blends and events.</p>
+          <h3>First access to seasonal blends</h3>
+          <p>Sign up for short recipes, pairing ideas and early product drops.</p>
         </div>
-        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thanks — signup placeholder');">
-          <input type="email" placeholder="Your email" required>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Signup placeholder — integrate provider later');">
+          <input type="email" placeholder="you@example.com" required>
           <button class="btn" type="submit">Subscribe</button>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <img src="assets/images/logo.png" alt="logo small" class="logo-small">
-        <p class="muted">Handcrafted blends from kwaNTU • Shipping S.A. wide</p>
-      </div>
-      <nav class="footer-nav">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="privacy.html">Privacy</a>
-      </nav>
-    </div>
-  </footer>
+<footer class="site-footer">
+  <div class="container footer-inner">
 
+    <!-- Left Side Text -->
+    <div class="footer-left">
+      <p class="muted">Handcrafted in kwaNTU • Shipping across S.A.</p>
+    </div>
+
+    <!-- Center Links -->
+    <nav class="footer-nav">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+
+    <!-- Right Side Logo -->
+    <div class="footer-right">
+      <img src="/image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" alt="Oils of BaNTU logo" class="logo-small">
+    </div>
+
+  </div>
+</footer>
+
+
+
+  <!-- Scripts -->
   <script src="script.js"></script>
+  <script>
+    // Small safety: if someone opened admin.html by mistake, this ensures the index script runs without redirecting.
+    // No auto-redirects here — to view admin open admin.html explicitly.
+    document.addEventListener('DOMContentLoaded', () => {
+      // make sure the collections list gets populated if script.js exposes an API
+      if (window.oilsBantu && typeof window.oilsBantu.loadStoredPosts === 'function') {
+        // Optionally trigger any UI population the index needs; script.js's bootIndex should handle it.
+        // This block intentionally left minimal to avoid accidental navigation.
+        return;
+      }
+    });
+  </script>
 </body>
 </html>
