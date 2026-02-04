@@ -1,36 +1,104 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>About — Oils of Bantu/title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Oils of BaNTU</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<!-- HEADER (must match index.html) -->
 <header class="site-header">
-<div class="container header-inner">
-<a class="brand" href="index.html"><img src="/image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" class="logo" alt="logo"></a>
-<nav class="nav" id="mainNav">
-<ul class="nav-list"><li><a href="index.html">Home</a></li><li><a href="contact.html">Contact</a></li></ul>
-</nav>
-</div>
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <img src="/image/WhatsApp Image 2025-11-05 at 17.46.17_436fec46.jpg" class="logo" alt="Oils of BaNTU logo">
+    </a>
+
+    <nav class="nav">
+      <ul class="nav-list" id="navList">
+        <li><a href="index.html">Home</a></li>
+
+        <li class="has-dropdown">
+          <button id="collectionsToggle" class="collections-toggle" aria-expanded="false">
+            Collections ▾
+          </button>
+          <ul class="dropdown" id="collectionsList">
+            <li><a href="#">Design</a></li>
+            <li><a href="#">HTML/CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+          </ul>
+        </li>
+
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="btn ghost">🌗</button>
+      <button id="navToggle" class="nav-toggle">☰</button>
+    </div>
+  </div>
 </header>
 
+<!-- MAIN CONTENT -->
+<main>
 
-<main class="container section">
-<h1 class="section-title">About Oils of Bantu</h1>
-<p>Oils of Bantu blends centuries-old herbal knowledge and local botanicals into modern ritual products. We craft small-batch teas, aromatherapy oils and gift sets with ethically sourced ingredients and a focus on sensory rituals.</p>
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container">
+      <h1>Rooted in Ritual. Crafted with Intention.</h1>
+      <p>
+        Oils of BaNTU is a sanctuary of aromatherapy and fine tea —
+        honouring ancient knowledge through modern refinement.
+      </p>
+    </div>
+  </section>
 
+  <!-- CONTENT -->
+  <section class="about-content container">
 
-<h2>Our Approach</h2>
-<p>We focus on gentle processing, mindful blending and packaging choices that preserve scent and flavor. Each seasonal collection is taste-tested and paired with rituals — serving suggestions are included with every purchase.</p>
+    <div class="about-block">
+      <h2>A Sanctuary of Ancient Knowledge & Modern Luxury</h2>
+      <p>
+        Rooted in ancient wisdom and elevated by modern refinement,
+        Oils of BaNTU exists to reconnect ritual, aroma, and intentional living.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h2>Where Research Meets Ritual</h2>
+      <p>
+        We explore aromatherapy, indigenous botanicals, and ceremonial teas —
+        blending science, culture, and heritage into every formulation.
+      </p>
+    </div>
+
+    <div class="about-block">
+      <h2>Why We Exist</h2>
+      <p>
+        Wellness is not rushed. It is revered.
+        Oils of BaNTU is for those who choose a slower,
+        more meaningful approach to self-care.
+      </p>
+    </div>
+
+    <blockquote>
+      Every scent and every sip is an invitation to return to self.
+    </blockquote>
+
+  </section>
+
 </main>
-
-
+<!-- FOOTER -->
 <footer class="site-footer">
-<div class="container footer-inner"><p>&copy; <span id="year"></span> Oils of Bantu</p></div>
-</footer>
-<script>document.getElementById('year')?.textContent = new Date().getFullYear()</script>
+  <div class="container footer-inner">
+    <p>&copy; <span id="year1"></span> Oils of BaNTU</p>
+  </div>
+
+<script src="script.js"></script>
 </body>
 </html>
