@@ -8,6 +8,34 @@
 
 /* ---------------- NAV + DROPDOWNS ---------------- */
 
+/* ---------------- DARK MODE ---------------- */
+
+function initThemeToggle() {
+  const themeToggle = document.getElementById("themeToggle");
+  const root = document.documentElement;
+
+  // Load saved theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    root.setAttribute("data-theme", "dark");
+  }
+
+  if (!themeToggle) return;
+
+  themeToggle.addEventListener("click", () => {
+    const isDark = root.getAttribute("data-theme") === "dark";
+
+    if (isDark) {
+      root.removeAttribute("data-theme");
+      localStorage.setItem("theme", "light");
+    } else {
+      root.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+}
+
+
 function wireNav() {
   const navToggle = document.getElementById("navToggle");
   const navList = document.getElementById("navList");
@@ -212,4 +240,59 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPosts();
 
   sortSelect?.addEventListener("change", renderPosts);
+  initThemeToggle();
+  initAdminPublish();
+  applyAdminVisibility();
+});
+
+/* ---------------- ADMIN PUBLISH ---------------- */
+
+function initAdminPublish() {
+  const form = document.getElementById("newPostForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const post = {
+      id: "post-" + Date.now(),
+      title: data.get("title")?.trim(),
+      category: data.get("category")?.trim() || "General",
+      price: data.get("price")?.trim(),
+      content: data.get("content")?.trim(),
+      excerpt: data.get("content")?.trim().slice(0, 120) + "...",
+      date: new Date().toISOString().slice(0, 10),
+      image: "", // placeholder
+    };
+
+    if (!post.title || !post.content) {
+      alert("Title and content are required");
+      return;
+    }
+
+    const posts = loadStoredPosts();
+    posts.unshift(post);
+    saveStoredPosts(posts);
+
+    alert("Post published 🎉");
+    form.reset();
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
+  initAdminPublish();
+});
+
+/* ---------------- ADMIN VISIBILITY ---------------- */
+
+function applyAdminVisibilityxVisibility() {
+  const isAdmin = localStorage.getItem("isAdmin") === "true";
+
+  document.querySelectorAll(".admin-only").forEach((el) => {
+    el.style.display = isAdmin ? "inline-block" : "none";
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
+  applyAdminVisibility();
 });
